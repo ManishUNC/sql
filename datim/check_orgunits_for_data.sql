@@ -17,7 +17,7 @@ OR ou.uid = 'vncLNiGh5yn' OR ou.uid = 'bbFetbhJ297' OR ou.uid = 'V6mRoVkM4Ru'
 
 -- checks for data for a particular org unit and doesn't include dataset
 
-SELECT ou.uid, ou.name as orgname, de.shortname as name, de.code dataelementcode, de.uid as dataelement, ps.iso as period, dv.value, dv.storedby, dv.lastupdated FROM datavalue dv 
+SELECT ou.uid, ou.name as SiteName, de.shortname as DataElement, de.code as DataElementCode, de.uid as dataelementUid, ps.iso as period, dv.value, dv.storedby, dv.lastupdated FROM datavalue dv 
 INNER JOIN organisationunit ou on (dv.sourceid = ou.organisationunitid) 
 INNER JOIN _periodstructure ps on (dv.periodid = ps.periodid) 
 INNER JOIN dataelement de on (de.dataelementid = dv.dataelementid)

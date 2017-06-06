@@ -42,3 +42,10 @@ INNER JOIN categoryoptioncombo co on (co.categoryoptioncomboid = dv.categoryopti
 INNER JOIN categoryoptioncombo gh on (gh.categoryoptioncomboid = dv.attributeoptioncomboid)
 INNER JOIN datasetsource dss on (dss.sourceid = ou.organisationunitid)
 WHERE ou.uid IN ('EicUMzaSLtP','TmAPlI4DVsF','FmblH9NgMkV') AND  de.uid IN ('f9BaCsI9PGn','NUdcIMK4Peq')
+
+Tanzania data extraction:
+SELECT ou.uid, ou.name as SiteName, de.shortname as DataElement, de.code as DataElementCode, de.uid as dataelementUid, ps.iso as period, dv.value, dv.storedby, dv.lastupdated FROM datavalue dv 
+INNER JOIN organisationunit ou on (dv.sourceid = ou.organisationunitid) 
+INNER JOIN _periodstructure ps on (dv.periodid = ps.periodid) 
+INNER JOIN dataelement de on (de.dataelementid = dv.dataelementid)
+WHERE ou.uid IN ('n78Ydak0uvP','ggKH4WC3X1d','kXRhGirInP8','te0TjpjK6FL')
